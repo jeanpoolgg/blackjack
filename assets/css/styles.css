@@ -2,13 +2,7 @@ html, body {
     margin: 0;
     background-color: #2F4F30;
     color: #fff;
-    width: 100%;
 }
-
-header, main {
-    width: 100%;
-}
-
 
 .titulo {
     text-align: center;
