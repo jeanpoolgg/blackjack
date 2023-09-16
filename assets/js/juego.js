@@ -16,7 +16,6 @@ const crearDeck = () => {
             deck.push(especial+tipo);
         }
     }
-    console.log(deck);
     deck = _.shuffle(deck);
     console.log(deck);
     return deck;
@@ -32,7 +31,13 @@ const pedirCarta = () => {
     }
 
     const carta = deck.pop();
-    console.log(deck);
-    console.log(carta); // carta debe de ser de la baraja
     return carta;
 }
+
+const valorCarta = (carta) => {
+    const valor = carta.substring(0, carta.length-1);
+    return (isNaN(valor))? ( (valor === 'A')? 11 : 10) : valor*1;
+}
+
+const valor = valorCarta(pedirCarta());
+console.log({valor});
