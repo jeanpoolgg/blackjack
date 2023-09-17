@@ -10,6 +10,7 @@ let puntosJugador = 0,
 // Referencias del HTML
 const btnPedir = document.querySelector('#btnPedir');
 const puntosHTML = document.querySelectorAll('small'); 
+const divCartasJugador = document.querySelector('#jugador-cartas');
 
 
 const crearDeck = () => {
@@ -54,4 +55,17 @@ btnPedir.addEventListener('click', () => {
     const carta = pedirCarta();
     puntosJugador += valorCarta(carta);
     puntosHTML[0].innerText = puntosJugador;
+
+    const imgCarta = document.createElement('img');
+    imgCarta.src = `assets/cartas/${carta}.png`
+    imgCarta.classList.add('carta');
+    divCartasJugador.append(imgCarta);
+
+    if( puntosJugador > 21){
+        btnPedir.disabled = true;
+        console.warn('Lo siento mucho, perdiste')
+    }else if( puntosJugador === 21){
+        console.warn('21, genial!');
+        btnPedir.disabled = true;
+    }
 })
