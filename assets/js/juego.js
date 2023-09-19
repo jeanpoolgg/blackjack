@@ -10,11 +10,17 @@ const miModulo = (()=>{
 
     // Referencias del HTML
     const btnNuevo = document.querySelector('#btnNuevo'),
-          btnPedir = document.querySelector('#btnPedir'),btnDetener = document.querySelector('#btnDetener');
+          btnPedir = document.querySelector('#btnPedir'),
+          btnDetener = document.querySelector('#btnDetener'),
+          nombreJugador1 = document.querySelector('#jugador1');
 
 
     const puntosHTML = document.querySelectorAll('small'),
           divCartasJugadores = document.querySelectorAll('.divCartas');
+
+    const pedirNombre = () => {
+        nombreJugador1.innerText = `${prompt('Ingresa tu nombre: ', 'Mi nombre')} - 0`;
+    }
 
     const crearDeck = () => {
         deck = [];
@@ -34,6 +40,7 @@ const miModulo = (()=>{
 
 
     const inicializarJuego = ( numJugadores = 2) => {
+        pedirNombre();
         deck = crearDeck();
         puntosJugadores = [];
         for (let i = 0; i < numJugadores; i++) {
